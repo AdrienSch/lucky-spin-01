@@ -8,9 +8,9 @@ namespace LuckySpin.Controllers
 {
     public class SpinnerController : Controller
     {
-        public IActionResult Index(int num = 7)
+        public IActionResult Index(int luck = 7)
         {
-            return new ContentResult { Content = new Lucky7().Output(num), ContentType="text/html"};
+            return new ContentResult { Content = new Lucky7().Output(luck), ContentType="text/html"};
         }
     }
 }

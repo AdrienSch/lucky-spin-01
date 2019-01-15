@@ -28,7 +28,7 @@ namespace LuckySpin
             app.UseMvc(routes =>
                 {
                     routes.MapRoute("Default",
-                        "{controller=Spinner}/{action=Index}/{num?}");
+                        "{controller=Spinner}/{action=Index}/{luck:int:range(1,9)?}");
                 }
             );
 
