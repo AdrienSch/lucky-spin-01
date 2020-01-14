@@ -16,24 +16,22 @@ namespace LuckySpin
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options =>
-            {
-                options.RespectBrowserAcceptHeader = false;
-            });
+            services.AddMvc();
+            services.AddTransient<Lucky7>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseMvc(routes =>
-                {
-                    routes.MapRoute("Default",
-                        "{controller=Spinner}/{action=Index}/{luck:int:range(1,9)?}");
-                }
-            );
-
-            app.UseStaticFiles();
-
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                     name: "default",
+                     pattern: "{controller}/{action}/{luck:int:range(1,9)?}",
+                     defaults: new { controller = "Spinner", action = "Index" }
+                );
+            });
         }
     }
 }
