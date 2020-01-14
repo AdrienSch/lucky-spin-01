@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace LuckySpin
 {
-    public class Lucky7
+    public interface ILuckySpin
+    {
+        string Output(int number);
+    }
+
+    public class Lucky7 : ILuckySpin
     {
         public string Output(int number) {
                 Random random = new Random();

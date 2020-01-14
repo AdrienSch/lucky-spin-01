@@ -17,7 +17,7 @@ namespace LuckySpin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<Lucky7>();
+            services.AddTransient<ILuckySpin, Lucky7>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

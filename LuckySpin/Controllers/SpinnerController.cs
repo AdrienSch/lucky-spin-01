@@ -8,10 +8,10 @@ namespace LuckySpin.Controllers
 {
     public class SpinnerController : Controller
     {
-        Lucky7 _luckySpinner;
-        public SpinnerController(Lucky7 lucky7)
+        ILuckySpin _luckySpinner;
+        public SpinnerController(ILuckySpin lucky)
         {
-            _luckySpinner = lucky7;
+            _luckySpinner = lucky;
         }
 
         public IActionResult Index(int luck = 7)
