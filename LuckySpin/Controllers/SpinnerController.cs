@@ -14,6 +14,7 @@ namespace LuckySpin.Controllers
             //TODO: add your string builder and HTML
 
 
+            //TODO: Modify this to use the string builder's response string as the Content property's value
             return new ContentResult { Content = "<h1>We're Ready to Spin with Controllers</h1>", ContentType="text/html"};
         }
     }

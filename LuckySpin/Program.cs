@@ -1,29 +1,28 @@
 ﻿var builder = WebApplication.CreateBuilder(args);
 
-/* Install Services using the builder.Services methods
- *  TODO: use the AddControllers method to enable controllers
- */  
+// Install Services using the builder.Services methods
+  //  TODO: add the "Controllers" method to the "builder" to enable MVC controllers
+ 
 
 //Builds the app with the added services
 var app = builder.Build();
 
 
-/* Configure Middleware in the HTTP Request Pipeline
-   • "UseStaticFiles" to recognizste static folders and files in the wwwroot directory
-   • TODO: add "UseRouting" to recognize custom "Routes" in place of folders and files
-   • "UseExceptionHandler" to provide a default error page when not in development
- */
+// Configure the app's Middleware in the HTTP Request Pipeline
+//   DONE: The following code "app.UseStaticFiles()" provides the ability to recognize static folders and files in the wwwroot directory
 app.UseStaticFiles();
 
+//   DONE: The following code "app.UseExceptionHandler" provides a default error page when not in development
 if (!app.Environment.IsDevelopment()) {
     app.UseExceptionHandler("/Spinner/Error");
 }
+//   TODO: add Routing to recognize custom "Routes" in place of folders and files
 
 
-/* Configure Routing with a general pattern
- *  and a default setting if the URL is just the base site
- *  TODO: Add a range(1,9) method to constrain luck between 1 and 9
- */
+
+//Configure Routing with a general pattern and a default setting if the URL path is left out
+ // FIXME:if your have time, add a range(1,9) method to constrain luck between 1 and 9
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action}/{luck}",
